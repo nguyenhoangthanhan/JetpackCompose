@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -30,16 +31,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Column {
-                EventNumbers()
-            }
+            MainScreen()
         }
     }
 }
 
 @Composable
 fun MainScreen(){
-    Column(modifier = Modifier
+    Row(modifier = Modifier
         .fillMaxWidth()
         .fillMaxHeight()
         .background(Color.White)
@@ -58,9 +57,8 @@ fun TextComponent(s: String, shadowColor: Color) {
 
     Text(
         modifier = Modifier
-            .fillMaxWidth()
+            .width(80.dp)
             .height(80.dp)
-            .background(Color.LightGray)
             .padding(
                 18.dp
             ),
