@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
@@ -34,6 +35,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -42,6 +44,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -111,7 +114,9 @@ fun MyTextFieldComponent(labelValue: String, painterResource: Painter) {
             focusedLabelColor = Primary,
             cursorColor = Primary,
         ),
-        keyboardOptions = KeyboardOptions.Default,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+        singleLine = true,
+        maxLines = 1,
         value = textValue.value,
         onValueChange = {
             textValue.value = it
@@ -129,6 +134,7 @@ fun MyTextFieldComponent(labelValue: String, painterResource: Painter) {
 @Composable
 fun MyPasswordTextFieldComponent(labelValue: String, painterResource: Painter) {
 
+    val localFocusManager = LocalFocusManager.current
     val password = remember {
         mutableStateOf("")
     }
@@ -149,7 +155,13 @@ fun MyPasswordTextFieldComponent(labelValue: String, painterResource: Painter) {
         ),
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done
         ),
+        singleLine = true,
+        keyboardActions = KeyboardActions{
+            localFocusManager.clearFocus()
+        },
+        maxLines = 1,
         value = password.value,
         onValueChange = {
             password.value = it
@@ -303,9 +315,9 @@ fun DividerTextComponent() {
 }
 
 @Composable
-fun ClickableLoginTextComponent(onTextSelected: (String) -> Unit) {
-    val initialText = "Already have an account? "
-    val loginText = "Login"
+fun ClickableLoginTextComponent(tryingToLogin:Boolean = true ,onTextSelected: (String) -> Unit) {
+    val initialText = if(tryingToLogin) "Already have an account? " else "Don’t have an account yet? "
+    val loginText = if(tryingToLogin) "Login" else "Register"
 
     val annotatedString = buildAnnotatedString {
         append(initialText)

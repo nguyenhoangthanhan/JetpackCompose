@@ -16,10 +16,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nguyenhoangthanhan.loginflow.R
 import com.nguyenhoangthanhan.loginflow.components.ButtonComponent
+import com.nguyenhoangthanhan.loginflow.components.ClickableLoginTextComponent
+import com.nguyenhoangthanhan.loginflow.components.DividerTextComponent
 import com.nguyenhoangthanhan.loginflow.components.HeadingTextComponent
+import com.nguyenhoangthanhan.loginflow.components.MyPasswordTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.MyTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.NormalTextComponent
 import com.nguyenhoangthanhan.loginflow.components.UnderLinedTextComponent
+import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
+import com.nguyenhoangthanhan.loginflow.navigation.Screen
+import com.nguyenhoangthanhan.loginflow.navigation.SystemBackButtonHandler
 
 @Composable
 fun LoginScreen() {
@@ -41,7 +47,7 @@ fun LoginScreen() {
                 labelValue = stringResource(id = R.string.email),
                 painterResource = painterResource(id = R.drawable.icon_mail_outline)
             )
-            MyTextFieldComponent(
+            MyPasswordTextFieldComponent(
                 labelValue = stringResource(id = R.string.password),
                 painterResource = painterResource(id = R.drawable.icon_password)
             )
@@ -49,6 +55,15 @@ fun LoginScreen() {
             UnderLinedTextComponent(value = stringResource(id = R.string.forgot_password))
             Spacer(modifier = Modifier.height(40.dp))
             ButtonComponent(value = stringResource(id = R.string.login))
+            Spacer(modifier = Modifier.height(20.dp))
+            DividerTextComponent()
+            ClickableLoginTextComponent(tryingToLogin = false, onTextSelected = {
+                PostOfficeAppRouter.navigateTo(Screen.SignUpScreen)
+            })
+        }
+
+        SystemBackButtonHandler {
+            PostOfficeAppRouter.navigateTo(Screen.SignUpScreen)
         }
     }
 }
