@@ -49,28 +49,32 @@ fun SignUpScreen(loinViewModel: LoginViewModel = viewModel()) {
                 painterResource(id = R.drawable.icon_person_outline),
                 onTextSelected = {
                     loinViewModel.onEvent(UIEvent.FirstNameChanged(it))
-                }
+                },
+                errorStatus =   loinViewModel.registrationUIState.value.firstNameError
             )
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.last_name),
                 painterResource = painterResource(id = R.drawable.icon_person_outline),
                 onTextSelected = {
                     loinViewModel.onEvent(UIEvent.LastNameChanged(it))
-                }
+                },
+                errorStatus = loinViewModel.registrationUIState.value.lastNameError
             )
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.email),
                 painterResource = painterResource(id = R.drawable.icon_mail_outline),
                 onTextSelected = {
                     loinViewModel.onEvent(UIEvent.EmailChanged(it))
-                }
+                },
+                errorStatus = loinViewModel.registrationUIState.value.emailError
             )
             MyPasswordTextFieldComponent(
                 labelValue = stringResource(id = R.string.password),
                 painterResource = painterResource(id = R.drawable.icon_password),
                 onTextSelected = {
                     loinViewModel.onEvent(UIEvent.PasswordChanged(it))
-                }
+                },
+                errorStatus = loinViewModel.registrationUIState.value.passwordError
             )
             CheckboxComponent(
                 value = stringResource(id = R.string.terms_and_conditions),
@@ -79,7 +83,12 @@ fun SignUpScreen(loinViewModel: LoginViewModel = viewModel()) {
                 }
             )
             Spacer(modifier = Modifier.height(40.dp))
-            ButtonComponent(value = stringResource(id = R.string.register))
+            ButtonComponent(
+                value = stringResource(id = R.string.register),
+                onButtonClicked = {
+                    loinViewModel.onEvent(UIEvent.RegisterButtonClicked)
+                }
+            )
             Spacer(modifier = Modifier.height(20.dp))
             DividerTextComponent()
             ClickableLoginTextComponent(tryingToLogin = true, onTextSelected = {
