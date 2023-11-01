@@ -98,7 +98,8 @@ fun HeadingTextComponent(value: String) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTextFieldComponent(labelValue: String, painterResource: Painter) {
+fun MyTextFieldComponent(labelValue: String, painterResource: Painter,
+                         onTextSelected: (String) -> Unit) {
 
     val textValue = remember {
         mutableStateOf("")
@@ -120,6 +121,7 @@ fun MyTextFieldComponent(labelValue: String, painterResource: Painter) {
         value = textValue.value,
         onValueChange = {
             textValue.value = it
+            onTextSelected(it)
         },
         leadingIcon = {
             Icon(
@@ -132,7 +134,8 @@ fun MyTextFieldComponent(labelValue: String, painterResource: Painter) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyPasswordTextFieldComponent(labelValue: String, painterResource: Painter) {
+fun MyPasswordTextFieldComponent(labelValue: String, painterResource: Painter,
+                                 onTextSelected: (String) -> Unit) {
 
     val localFocusManager = LocalFocusManager.current
     val password = remember {
@@ -165,6 +168,7 @@ fun MyPasswordTextFieldComponent(labelValue: String, painterResource: Painter) {
         value = password.value,
         onValueChange = {
             password.value = it
+            onTextSelected(it)
         },
         leadingIcon = {
             Icon(

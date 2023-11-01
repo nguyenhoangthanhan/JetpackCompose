@@ -23,11 +23,14 @@ import com.nguyenhoangthanhan.loginflow.components.HeadingTextComponent
 import com.nguyenhoangthanhan.loginflow.components.MyPasswordTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.MyTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.NormalTextComponent
+import com.nguyenhoangthanhan.loginflow.data.LoginViewModel
 import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
 import com.nguyenhoangthanhan.loginflow.navigation.Screen
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.nguyenhoangthanhan.loginflow.data.UIEvent
 
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(loinViewModel: LoginViewModel = viewModel()) {
     Surface (
         modifier = Modifier
             .fillMaxSize()
@@ -43,19 +46,31 @@ fun SignUpScreen() {
             Spacer(modifier = Modifier.height(20.dp))
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.first_name),
-                painterResource(id = R.drawable.icon_person_outline)
+                painterResource(id = R.drawable.icon_person_outline),
+                onTextSelected = {
+                    loinViewModel.onEvent(UIEvent.FirstNameChanged(it))
+                }
             )
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.last_name),
-                painterResource = painterResource(id = R.drawable.icon_person_outline)
+                painterResource = painterResource(id = R.drawable.icon_person_outline),
+                onTextSelected = {
+                    loinViewModel.onEvent(UIEvent.LastNameChanged(it))
+                }
             )
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.email),
-                painterResource = painterResource(id = R.drawable.icon_mail_outline)
+                painterResource = painterResource(id = R.drawable.icon_mail_outline),
+                onTextSelected = {
+                    loinViewModel.onEvent(UIEvent.EmailChanged(it))
+                }
             )
             MyPasswordTextFieldComponent(
                 labelValue = stringResource(id = R.string.password),
-                painterResource = painterResource(id = R.drawable.icon_password)
+                painterResource = painterResource(id = R.drawable.icon_password),
+                onTextSelected = {
+                    loinViewModel.onEvent(UIEvent.PasswordChanged(it))
+                }
             )
             CheckboxComponent(
                 value = stringResource(id = R.string.terms_and_conditions),
