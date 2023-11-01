@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
 import com.nguyenhoangthanhan.loginflow.navigation.Screen
+import com.nguyenhoangthanhan.loginflow.screens.HomeScreen
 import com.nguyenhoangthanhan.loginflow.screens.LoginScreen
 import com.nguyenhoangthanhan.loginflow.screens.SignUpScreen
 import com.nguyenhoangthanhan.loginflow.screens.TermsAndConditionsScreen
@@ -34,6 +35,10 @@ fun PostOfficeApp() {
                 is Screen.LoginScreen -> {
                     Log.d("ClickableTextComponent_Tag", "Screen.LoginScreen")
                     LoginScreen()
+                }
+                is Screen.HomeScreen -> {
+                    Log.d("ClickableTextComponent_Tag", "Screen.LoginScreen")
+                    HomeScreen()
                 }
             }
         }

@@ -5,6 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.nguyenhoangthanhan.loginflow.data.rules.Validator
+import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
+import com.nguyenhoangthanhan.loginflow.navigation.Screen
 
 class LoginViewModel : ViewModel() {
 
@@ -13,6 +15,8 @@ class LoginViewModel : ViewModel() {
     var registrationUIState = mutableStateOf(RegistrationUIState())
 
     var allValidationsPassed = mutableStateOf(false)
+
+    var signUpInProgress = mutableStateOf(false)
 
     fun onEvent(event: UIEvent) {
         validateDataWithRules()
@@ -110,11 +114,19 @@ class LoginViewModel : ViewModel() {
     }
 
     private fun createUserInFirebase(email: String, password: String){
+
+        signUpInProgress.value = true
+
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 Log.d(TAG, "Inside_OnCompleteListener")
                 Log.d(TAG, "isSuccessful = ${it.isSuccessful}")
+
+                signUpInProgress.value = false
+                if(it.isSuccessful){
+                    PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
+                }
             }
             .addOnFailureListener {
                 Log.d(TAG, "Inside_OnFailureListener")
