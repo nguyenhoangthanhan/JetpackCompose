@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 //    id("kotlin-kapt")
-//    id("com.google.gms.google-services")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -82,4 +82,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     // Lifecycle utilities for Compose
     implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
+
+    implementation(platform("com.google.firebase:firebase-bom:32.0.0"))
+
+    implementation("com.google.firebase:firebase-auth-ktx")
 }

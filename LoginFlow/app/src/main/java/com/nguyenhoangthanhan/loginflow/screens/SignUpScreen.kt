@@ -30,7 +30,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.nguyenhoangthanhan.loginflow.data.UIEvent
 
 @Composable
-fun SignUpScreen(loinViewModel: LoginViewModel = viewModel()) {
+fun SignUpScreen(loginViewModel: LoginViewModel = viewModel()) {
     Surface (
         modifier = Modifier
             .fillMaxSize()
@@ -48,46 +48,50 @@ fun SignUpScreen(loinViewModel: LoginViewModel = viewModel()) {
                 labelValue = stringResource(id = R.string.first_name),
                 painterResource(id = R.drawable.icon_person_outline),
                 onTextSelected = {
-                    loinViewModel.onEvent(UIEvent.FirstNameChanged(it))
+                    loginViewModel.onEvent(UIEvent.FirstNameChanged(it))
                 },
-                errorStatus =   loinViewModel.registrationUIState.value.firstNameError
+                errorStatus =   loginViewModel.registrationUIState.value.firstNameError
             )
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.last_name),
                 painterResource = painterResource(id = R.drawable.icon_person_outline),
                 onTextSelected = {
-                    loinViewModel.onEvent(UIEvent.LastNameChanged(it))
+                    loginViewModel.onEvent(UIEvent.LastNameChanged(it))
                 },
-                errorStatus = loinViewModel.registrationUIState.value.lastNameError
+                errorStatus = loginViewModel.registrationUIState.value.lastNameError
             )
             MyTextFieldComponent(
                 labelValue = stringResource(id = R.string.email),
                 painterResource = painterResource(id = R.drawable.icon_mail_outline),
                 onTextSelected = {
-                    loinViewModel.onEvent(UIEvent.EmailChanged(it))
+                    loginViewModel.onEvent(UIEvent.EmailChanged(it))
                 },
-                errorStatus = loinViewModel.registrationUIState.value.emailError
+                errorStatus = loginViewModel.registrationUIState.value.emailError
             )
             MyPasswordTextFieldComponent(
                 labelValue = stringResource(id = R.string.password),
                 painterResource = painterResource(id = R.drawable.icon_password),
                 onTextSelected = {
-                    loinViewModel.onEvent(UIEvent.PasswordChanged(it))
+                    loginViewModel.onEvent(UIEvent.PasswordChanged(it))
                 },
-                errorStatus = loinViewModel.registrationUIState.value.passwordError
+                errorStatus = loginViewModel.registrationUIState.value.passwordError
             )
             CheckboxComponent(
                 value = stringResource(id = R.string.terms_and_conditions),
                 onTextSelected = {
                     PostOfficeAppRouter.navigateTo(Screen.TermsAndConditionsScreen)
+                },
+                onCheckedChange = {
+                    loginViewModel.onEvent(UIEvent.PrivacyPolicyCheckBoxClicked(it))
                 }
             )
             Spacer(modifier = Modifier.height(40.dp))
             ButtonComponent(
                 value = stringResource(id = R.string.register),
                 onButtonClicked = {
-                    loinViewModel.onEvent(UIEvent.RegisterButtonClicked)
-                }
+                    loginViewModel.onEvent(UIEvent.RegisterButtonClicked)
+                },
+                isEnabled = loginViewModel.allValidationsPassed.value
             )
             Spacer(modifier = Modifier.height(20.dp))
             DividerTextComponent()

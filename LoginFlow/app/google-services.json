@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356161653713",
+    "project_id": "loginflowapp-17afd",
+    "storage_bucket": "loginflowapp-17afd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356161653713:android:08603c0aeb6ae840746ef0",
+        "android_client_info": {
+          "package_name": "com.nguyenhoangthanhan.loginflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKVBVf_JrVlcXOPjaShmXhMYLbkKxuFzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

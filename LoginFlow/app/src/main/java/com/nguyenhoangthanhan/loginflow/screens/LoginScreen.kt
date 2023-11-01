@@ -66,7 +66,8 @@ fun LoginScreen() {
                 value = stringResource(id = R.string.login),
                 onButtonClicked = {
 
-                }
+                },
+                isEnabled = false
             )
             Spacer(modifier = Modifier.height(20.dp))
             DividerTextComponent()
