@@ -4,25 +4,25 @@ object Validator {
 
     fun validateFirstName(firstName: String): ValidationResult{
         return ValidationResult(
-            (!firstName.isNullOrEmpty() && firstName.length >= 2)
+            (firstName.isNotEmpty() && firstName.length >= 2)
         )
     }
 
     fun validateLastName(lastName: String): ValidationResult{
         return ValidationResult(
-            (!lastName.isNullOrEmpty() && lastName.length >= 2)
+            (lastName.isNotEmpty() && lastName.length >= 2)
         )
     }
 
     fun validateEmail(email: String): ValidationResult{
         return ValidationResult(
-            (!email.isNullOrEmpty())
+            (email.isNotEmpty())
         )
     }
 
     fun validatePassword(password: String): ValidationResult{
         return ValidationResult(
-            (!password.isNullOrEmpty() && password.length >= 4)
+            (password.isNotEmpty() && password.length >= 4)
         )
     }
 

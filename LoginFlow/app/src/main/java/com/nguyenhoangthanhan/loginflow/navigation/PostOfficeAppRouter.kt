@@ -15,7 +15,7 @@ sealed class Screen {
 
 object PostOfficeAppRouter {
 
-    var currentScreen: MutableState<Screen> = mutableStateOf(Screen.SignUpScreen)
+    var currentScreen: MutableState<Screen> = mutableStateOf(Screen.HomeScreen)
 
     fun navigateTo(destination : Screen){
         Log.d("ClickableTextComponent_Tag", "navigateTo.destination = $destination")

@@ -1,18 +1,24 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.nguyenhoangthanhan.loginflow.components
 
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Logout
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
@@ -26,6 +32,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -54,10 +62,12 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nguyenhoangthanhan.loginflow.R
+import com.nguyenhoangthanhan.loginflow.data.NavigationItem
 import com.nguyenhoangthanhan.loginflow.ui.theme.Gray
 import com.nguyenhoangthanhan.loginflow.ui.theme.Primary
 import com.nguyenhoangthanhan.loginflow.ui.theme.Secondary
 import com.nguyenhoangthanhan.loginflow.ui.theme.TextColor
+import com.nguyenhoangthanhan.loginflow.ui.theme.White
 import com.nguyenhoangthanhan.loginflow.ui.theme.componentShapes
 
 @Composable
@@ -385,4 +395,64 @@ fun UnderLinedTextComponent(value: String) {
         textDecoration = TextDecoration.Underline
     )
 
+}
+
+@Composable
+fun AppToolbar(toolbarTitle: String, logoutButtonClicked: () -> Unit){
+
+    TopAppBar(
+        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Blue),
+        title = {
+            Text(
+                text = toolbarTitle,
+                color = colorResource(id = R.color.white),
+            )
+        },
+        navigationIcon = {
+            Icon(
+                imageVector = Icons.Filled.Menu,
+                contentDescription = stringResource(id = R.string.menu),
+                tint = Color.White
+            )
+        },
+        actions = {
+            IconButton(onClick = {
+                logoutButtonClicked.invoke()
+            }) {
+                Icon(
+                    imageVector = Icons.Filled.Logout,
+                    contentDescription = stringResource(id = R.string.logout)
+                )
+            }
+        }
+    )
+}
+
+@Composable
+fun NavigationDrawerHeader(){
+    Box (
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(32.dp)
+    ){
+        HeadingTextComponent(value = stringResource(id = R.string.navigation_header))
+    }
+}
+
+@Composable
+fun NavigationDrawerBody(items: List<NavigationItem>){
+    LazyColumn(modifier = Modifier.fillMaxWidth()){
+        items.forEach {
+
+        }
+    }
+}
+
+@Composable
+fun NavigationItemRow(){
+    Row (
+        modifier = Modifier.fillMaxWidth().padding(all = 16.dp)
+    ){
+
+    }
 }
