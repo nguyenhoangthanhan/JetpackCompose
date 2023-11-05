@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.data
+package com.nguyenhoangthanhan.loginflow.data.login
 
 data class LoginUIState (
     var email: String = "",

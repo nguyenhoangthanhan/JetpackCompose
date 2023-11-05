@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.data
+package com.nguyenhoangthanhan.loginflow.data.login
 
 sealed class LoginUIEvent {
     data class EmailChanged(val email: String): LoginUIEvent()

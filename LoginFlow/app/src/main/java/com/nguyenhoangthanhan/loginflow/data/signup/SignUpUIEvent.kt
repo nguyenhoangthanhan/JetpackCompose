@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.data
+package com.nguyenhoangthanhan.loginflow.data.signup
 
 sealed class SignUpUIEvent {
 

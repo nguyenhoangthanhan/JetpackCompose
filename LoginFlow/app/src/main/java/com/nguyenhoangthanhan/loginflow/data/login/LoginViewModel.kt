@@ -1,12 +1,11 @@
-package com.nguyenhoangthanhan.loginflow
+package com.nguyenhoangthanhan.loginflow.data.login
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.nguyenhoangthanhan.loginflow.data.LoginUIEvent
-import com.nguyenhoangthanhan.loginflow.data.LoginUIState
-import com.nguyenhoangthanhan.loginflow.data.SignUpUIEvent
+import com.nguyenhoangthanhan.loginflow.data.login.LoginUIEvent
+import com.nguyenhoangthanhan.loginflow.data.login.LoginUIState
 import com.nguyenhoangthanhan.loginflow.data.rules.Validator
 import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
 import com.nguyenhoangthanhan.loginflow.navigation.Screen

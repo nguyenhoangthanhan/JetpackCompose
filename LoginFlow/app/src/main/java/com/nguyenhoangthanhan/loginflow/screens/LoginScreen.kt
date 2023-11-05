@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.nguyenhoangthanhan.loginflow.LoginViewModel
+import com.nguyenhoangthanhan.loginflow.data.login.LoginViewModel
 import com.nguyenhoangthanhan.loginflow.R
 import com.nguyenhoangthanhan.loginflow.components.ButtonComponent
 import com.nguyenhoangthanhan.loginflow.components.ClickableLoginTextComponent
@@ -28,7 +28,7 @@ import com.nguyenhoangthanhan.loginflow.components.MyPasswordTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.MyTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.NormalTextComponent
 import com.nguyenhoangthanhan.loginflow.components.UnderLinedTextComponent
-import com.nguyenhoangthanhan.loginflow.data.LoginUIEvent
+import com.nguyenhoangthanhan.loginflow.data.login.LoginUIEvent
 import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
 import com.nguyenhoangthanhan.loginflow.navigation.Screen
 import com.nguyenhoangthanhan.loginflow.navigation.SystemBackButtonHandler

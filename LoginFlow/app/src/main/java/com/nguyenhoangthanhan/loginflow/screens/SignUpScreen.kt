@@ -26,11 +26,11 @@ import com.nguyenhoangthanhan.loginflow.components.HeadingTextComponent
 import com.nguyenhoangthanhan.loginflow.components.MyPasswordTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.MyTextFieldComponent
 import com.nguyenhoangthanhan.loginflow.components.NormalTextComponent
-import com.nguyenhoangthanhan.loginflow.data.SignUpViewModel
+import com.nguyenhoangthanhan.loginflow.data.signup.SignUpViewModel
 import com.nguyenhoangthanhan.loginflow.navigation.PostOfficeAppRouter
 import com.nguyenhoangthanhan.loginflow.navigation.Screen
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.nguyenhoangthanhan.loginflow.data.SignUpUIEvent
+import com.nguyenhoangthanhan.loginflow.data.signup.SignUpUIEvent
 
 @Composable
 fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel()) {
