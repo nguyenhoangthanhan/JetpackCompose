@@ -17,11 +17,13 @@ import com.nguyenhoangthanhan.loginflow.navigation.Screen
 import com.nguyenhoangthanhan.loginflow.navigation.SystemBackButtonHandler
 
 @Composable
-fun TermsAndConditionsScreen(){
-    Surface(modifier = Modifier
-        .fillMaxSize()
-        .background(color = Color.White)
-        .padding(16.dp)) {
+fun TermsAndConditionsScreen() {
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.White)
+            .padding(16.dp)
+    ) {
         HeadingTextComponent(value = stringResource(id = R.string.terms_and_conditions))
 
         SystemBackButtonHandler {
@@ -32,6 +34,6 @@ fun TermsAndConditionsScreen(){
 
 @Preview
 @Composable
-fun TermsAndConditionsScreenPreview(){
+fun TermsAndConditionsScreenPreview() {
     TermsAndConditionsScreen()
 }

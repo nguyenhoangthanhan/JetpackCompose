@@ -1,6 +1,6 @@
 package com.nguyenhoangthanhan.loginflow.data.login
 
-data class LoginUIState (
+data class LoginUIState(
     var email: String = "",
     var password: String = "",
 

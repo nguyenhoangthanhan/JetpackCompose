@@ -27,11 +27,13 @@ class LoginViewModel : ViewModel() {
                     email = event.email
                 )
             }
+
             is LoginUIEvent.PasswordChanged -> {
                 loginUIState.value = loginUIState.value.copy(
                     password = event.password
                 )
             }
+
             is LoginUIEvent.LoginButtonClicked -> {
                 login()
             }
@@ -71,7 +73,7 @@ class LoginViewModel : ViewModel() {
                 Log.d(TAG, "Inside_OnCompleteListener")
                 Log.d(TAG, "isSuccessful = ${it.isSuccessful}")
 
-                if(it.isSuccessful){
+                if (it.isSuccessful) {
                     loginInProgress.value = false
                     PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
                 }

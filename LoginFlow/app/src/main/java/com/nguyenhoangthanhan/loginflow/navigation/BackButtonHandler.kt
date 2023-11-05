@@ -26,30 +26,30 @@ private class ComposableBackNavigationHandler(enabled: Boolean) : OnBackPressedC
 internal fun ComposableHandler(
     enabled: Boolean = true,
     onBackPressed: () -> Unit
-){
+) {
     val dispatcher = (LocalBackPressedDispatcher.current ?: return).onBackPressedDispatcher
 
     val handler = remember {
         ComposableBackNavigationHandler(enabled)
     }
-    
-    DisposableEffect(dispatcher){
+
+    DisposableEffect(dispatcher) {
         dispatcher.addCallback(handler)
 
         onDispose { handler.remove() }
     }
-    
-    LaunchedEffect(enabled){
+
+    LaunchedEffect(enabled) {
         handler.isEnabled = enabled
         handler.onBackPressed = onBackPressed
     }
 }
 
 @Composable
-internal fun SystemBackButtonHandler(onBackPressed: () -> Unit){
-    CompositionLocalProvider (
+internal fun SystemBackButtonHandler(onBackPressed: () -> Unit) {
+    CompositionLocalProvider(
         LocalBackPressedDispatcher provides LocalLifecycleOwner.current as ComponentActivity
-    ){
+    ) {
         ComposableHandler {
             onBackPressed()
         }

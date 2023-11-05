@@ -84,7 +84,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
             }
         }
 
-        if (loginViewModel.loginInProgress.value){
+        if (loginViewModel.loginInProgress.value) {
             CircularProgressIndicator()
         }
     }

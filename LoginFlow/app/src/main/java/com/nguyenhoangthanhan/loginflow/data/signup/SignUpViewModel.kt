@@ -110,12 +110,12 @@ class SignUpViewModel : ViewModel() {
                 emailResult.status && passwordResult.status && privacyPolicyResult.status
     }
 
-    private fun printState(){
+    private fun printState() {
         Log.d(TAG, "Inside_printState")
         Log.d(TAG, registrationUIState.value.toString())
     }
 
-    private fun createUserInFirebase(email: String, password: String){
+    private fun createUserInFirebase(email: String, password: String) {
 
         signUpInProgress.value = true
 
@@ -126,7 +126,7 @@ class SignUpViewModel : ViewModel() {
                 Log.d(TAG, "isSuccessful = ${it.isSuccessful}")
 
                 signUpInProgress.value = false
-                if(it.isSuccessful){
+                if (it.isSuccessful) {
                     PostOfficeAppRouter.navigateTo(Screen.HomeScreen)
                 }
             }

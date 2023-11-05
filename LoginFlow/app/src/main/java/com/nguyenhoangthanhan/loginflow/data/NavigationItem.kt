@@ -2,7 +2,7 @@ package com.nguyenhoangthanhan.loginflow.data
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
-data class NavigationItem (
+data class NavigationItem(
     val title: String,
     val description: String,
     val itemId: String,
