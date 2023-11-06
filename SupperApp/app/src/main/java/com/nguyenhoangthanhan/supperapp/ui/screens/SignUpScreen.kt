@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.screens
+package com.nguyenhoangthanhan.supperapp.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -17,20 +17,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.nguyenhoangthanhan.loginflow.R
-import com.nguyenhoangthanhan.loginflow.components.ButtonComponent
-import com.nguyenhoangthanhan.loginflow.components.CheckboxComponent
-import com.nguyenhoangthanhan.loginflow.components.ClickableLoginTextComponent
-import com.nguyenhoangthanhan.loginflow.components.DividerTextComponent
-import com.nguyenhoangthanhan.loginflow.components.HeadingTextComponent
-import com.nguyenhoangthanhan.loginflow.components.MyPasswordTextFieldComponent
-import com.nguyenhoangthanhan.loginflow.components.MyTextFieldComponent
-import com.nguyenhoangthanhan.loginflow.components.NormalTextComponent
-import com.nguyenhoangthanhan.loginflow.data.signup.SignUpViewModel
-import com.nguyenhoangthanhan.loginflow.navigation.SuperAppRouter
-import com.nguyenhoangthanhan.loginflow.navigation.Screen
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.nguyenhoangthanhan.loginflow.data.signup.SignUpUIEvent
+import com.nguyenhoangthanhan.supperapp.R
+import com.nguyenhoangthanhan.supperapp.navigation.SuperAppRouter
+import com.nguyenhoangthanhan.supperapp.navigation.Screen
+import com.nguyenhoangthanhan.supperapp.ui.components.ButtonComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.CheckboxComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.ClickableLoginTextComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.DividerTextComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.HeadingTextComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.MyPasswordTextFieldComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.MyTextFieldComponent
+import com.nguyenhoangthanhan.supperapp.ui.components.NormalTextComponent
+import com.nguyenhoangthanhan.supperapp.ui.uievents.SignUpUIEvent
+import com.nguyenhoangthanhan.supperapp.ui.viewmodels.SignUpViewModel
 
 @Composable
 fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel()) {

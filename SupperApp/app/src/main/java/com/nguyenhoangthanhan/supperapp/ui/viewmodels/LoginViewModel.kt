@@ -1,14 +1,14 @@
-package com.nguyenhoangthanhan.loginflow.data.login
+package com.nguyenhoangthanhan.supperapp.ui.viewmodels
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.nguyenhoangthanhan.loginflow.data.login.LoginUIEvent
-import com.nguyenhoangthanhan.loginflow.data.login.LoginUIState
-import com.nguyenhoangthanhan.loginflow.data.rules.Validator
-import com.nguyenhoangthanhan.loginflow.navigation.SuperAppRouter
-import com.nguyenhoangthanhan.loginflow.navigation.Screen
+import com.nguyenhoangthanhan.supperapp.navigation.SuperAppRouter
+import com.nguyenhoangthanhan.supperapp.navigation.Screen
+import com.nguyenhoangthanhan.supperapp.ui.rules.Validator
+import com.nguyenhoangthanhan.supperapp.ui.states.LoginUIState
+import com.nguyenhoangthanhan.supperapp.ui.uievents.LoginUIEvent
 
 class LoginViewModel : ViewModel() {
 

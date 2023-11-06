@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.data.home
+package com.nguyenhoangthanhan.supperapp.ui.viewmodels
 
 import android.util.Log
 import androidx.compose.material.icons.Icons
@@ -8,9 +8,9 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.nguyenhoangthanhan.loginflow.data.NavigationItem
-import com.nguyenhoangthanhan.loginflow.navigation.SuperAppRouter
-import com.nguyenhoangthanhan.loginflow.navigation.Screen
+import com.nguyenhoangthanhan.supperapp.data.local.entities.NavigationItem
+import com.nguyenhoangthanhan.supperapp.navigation.SuperAppRouter
+import com.nguyenhoangthanhan.supperapp.navigation.Screen
 
 class HomeViewModel : ViewModel() {
 

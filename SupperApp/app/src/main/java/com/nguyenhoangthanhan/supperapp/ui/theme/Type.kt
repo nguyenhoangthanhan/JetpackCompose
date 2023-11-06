@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.supperapp.ui.theme
+package com.nguyenhoangthanhan.loginflow.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

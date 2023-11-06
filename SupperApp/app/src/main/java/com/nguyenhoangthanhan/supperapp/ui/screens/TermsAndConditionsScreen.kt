@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.screens
+package com.nguyenhoangthanhan.supperapp.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,11 +10,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.nguyenhoangthanhan.loginflow.R
-import com.nguyenhoangthanhan.loginflow.components.HeadingTextComponent
-import com.nguyenhoangthanhan.loginflow.navigation.SuperAppRouter
-import com.nguyenhoangthanhan.loginflow.navigation.Screen
-import com.nguyenhoangthanhan.loginflow.navigation.SystemBackButtonHandler
+import com.nguyenhoangthanhan.supperapp.R
+import com.nguyenhoangthanhan.supperapp.navigation.SuperAppRouter
+import com.nguyenhoangthanhan.supperapp.navigation.Screen
+import com.nguyenhoangthanhan.supperapp.navigation.SystemBackButtonHandler
+import com.nguyenhoangthanhan.supperapp.ui.components.HeadingTextComponent
 
 @Composable
 fun TermsAndConditionsScreen() {

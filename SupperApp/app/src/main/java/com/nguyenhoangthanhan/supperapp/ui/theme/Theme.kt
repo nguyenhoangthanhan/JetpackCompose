@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.supperapp.ui.theme
+package com.nguyenhoangthanhan.loginflow.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun SupperAppTheme(
+fun LoginFlowTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

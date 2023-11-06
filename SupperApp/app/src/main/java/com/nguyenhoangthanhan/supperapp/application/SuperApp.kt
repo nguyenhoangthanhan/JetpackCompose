@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.loginflow.app
+package com.nguyenhoangthanhan.supperapp.application
 
 import android.util.Log
 import androidx.compose.animation.Crossfade
@@ -8,16 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.nguyenhoangthanhan.loginflow.data.home.HomeViewModel
-import com.nguyenhoangthanhan.loginflow.navigation.SuperAppRouter
-import com.nguyenhoangthanhan.loginflow.navigation.Screen
-import com.nguyenhoangthanhan.loginflow.screens.HomeScreen
-import com.nguyenhoangthanhan.loginflow.screens.LoginScreen
-import com.nguyenhoangthanhan.loginflow.screens.SignUpScreen
-import com.nguyenhoangthanhan.loginflow.screens.TermsAndConditionsScreen
+import com.nguyenhoangthanhan.supperapp.navigation.Screen
+import com.nguyenhoangthanhan.supperapp.navigation.SuperAppRouter
+import com.nguyenhoangthanhan.supperapp.ui.screens.HomeScreen
+import com.nguyenhoangthanhan.supperapp.ui.screens.LoginScreen
+import com.nguyenhoangthanhan.supperapp.ui.screens.SignUpScreen
+import com.nguyenhoangthanhan.supperapp.ui.screens.TermsAndConditionsScreen
+import com.nguyenhoangthanhan.supperapp.ui.viewmodels.HomeViewModel
 
 @Composable
-fun PostOfficeApp(homeViewModel: HomeViewModel = viewModel()) {
+fun SuperApp(homeViewModel: HomeViewModel = viewModel()) {
 
     homeViewModel.checkForActiveSession()
 
