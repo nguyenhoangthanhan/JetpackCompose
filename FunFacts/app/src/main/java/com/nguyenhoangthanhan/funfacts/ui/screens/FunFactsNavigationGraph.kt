@@ -8,17 +8,17 @@ import androidx.navigation.compose.rememberNavController
 import com.nguyenhoangthanhan.funfacts.ui.UserInputViewModel
 
 @Composable
-fun FunFactsNavigationGraph(userInputViewModel: UserInputViewModel = viewModel()){
+fun FunFactsNavigationGraph(userInputViewModel: UserInputViewModel = viewModel()) {
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
         startDestination = Routes.USER_INPUT_SCREEN
-    ){
-        composable(Routes.USER_INPUT_SCREEN){
+    ) {
+        composable(Routes.USER_INPUT_SCREEN) {
             UserInputScreen(userInputViewModel)
         }
-        composable(Routes.WELCOME_SCREEN){
+        composable(Routes.WELCOME_SCREEN) {
             WelcomeScreen()
         }
     }

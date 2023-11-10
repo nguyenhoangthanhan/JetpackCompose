@@ -16,7 +16,9 @@ fun WelcomeScreen() {
         modifier = Modifier.fillMaxSize()
     ) {
         Text(
-            modifier = Modifier.fillMaxWidth().height(80.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(80.dp),
             text = Routes.WELCOME_SCREEN
         )
     }
@@ -24,6 +26,6 @@ fun WelcomeScreen() {
 
 @Preview
 @Composable
-fun WelcomeScreenPreview(){
+fun WelcomeScreenPreview() {
     WelcomeScreen()
 }

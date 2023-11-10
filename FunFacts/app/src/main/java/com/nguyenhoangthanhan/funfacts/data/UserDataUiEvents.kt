@@ -1,6 +1,6 @@
 package com.nguyenhoangthanhan.funfacts.data
 
-sealed class UserDataUiEvents{
+sealed class UserDataUiEvents {
     data class UserNameEntered(val name: String) : UserDataUiEvents()
     data class AnimalSelected(val animalValue: String) : UserDataUiEvents()
 }

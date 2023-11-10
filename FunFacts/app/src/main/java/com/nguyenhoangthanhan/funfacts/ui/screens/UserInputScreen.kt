@@ -17,11 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.nguyenhoangthanhan.funfacts.R
 import com.nguyenhoangthanhan.funfacts.data.UserDataUiEvents
 import com.nguyenhoangthanhan.funfacts.ui.AnimalCard
+import com.nguyenhoangthanhan.funfacts.ui.ButtonComponent
 import com.nguyenhoangthanhan.funfacts.ui.TextComponent
 import com.nguyenhoangthanhan.funfacts.ui.TextFieldComponent
 import com.nguyenhoangthanhan.funfacts.ui.TopBar
@@ -34,9 +36,11 @@ fun UserInputScreen(userInputViewModel: UserInputViewModel) {
             .fillMaxSize()
             .padding(18.dp)
     ) {
-        Column (modifier = Modifier
-            .fillMaxSize()
-            .padding(18.dp)){
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(18.dp)
+        ) {
             TopBar("Hi there \uD83D\uDE0A")
 
             TextComponent(
@@ -69,19 +73,40 @@ fun UserInputScreen(userInputViewModel: UserInputViewModel) {
 
             TextComponent(textValue = "What do you like", textSize = 18.sp)
 
-            Row (
-                modifier = Modifier.fillMaxWidth()
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
                     .wrapContentWidth(align = Alignment.CenterHorizontally)
-            ){
-                AnimalCard(image = R.drawable.cat, false)
-                AnimalCard(image = R.drawable.dog, false)
+            ) {
+                AnimalCard(
+                    image = R.drawable.cat,
+                    selected = userInputViewModel.uiState.value.animateSelected == "Cat",
+                    animalSelected = {
+                        userInputViewModel.onEvent(UserDataUiEvents.AnimalSelected(it))
+                    })
+                AnimalCard(
+                    image = R.drawable.dog,
+                    selected = userInputViewModel.uiState.value.animateSelected == "Dog",
+                    animalSelected = {
+                        userInputViewModel.onEvent(UserDataUiEvents.AnimalSelected(it))
+                    })
             }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            if(!userInputViewModel.uiState.value.nameEntered.isNullOrEmpty()
+                && !userInputViewModel.uiState.value.animateSelected.isNullOrEmpty())
+            ButtonComponent(
+                goToDetailsScreen = {
+
+                }
+            )
         }
     }
 }
 
 @Preview
 @Composable
-fun UserInputScreenPreview(){
+fun UserInputScreenPreview() {
     UserInputScreen(UserInputViewModel())
 }

@@ -4,6 +4,7 @@ package com.nguyenhoangthanhan.funfacts.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,6 +41,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nguyenhoangthanhan.funfacts.R
+import com.nguyenhoangthanhan.funfacts.data.UserDataUiEvents
 
 @Composable
 fun TopBar(value: String) {
@@ -118,7 +121,7 @@ fun TextFieldComponent(
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Done
         ),
-        keyboardActions = KeyboardActions{
+        keyboardActions = KeyboardActions {
             localFocusManager.clearFocus()
         }
     )
@@ -132,7 +135,11 @@ fun TextFieldComponentPreview() {
 }
 
 @Composable
-fun AnimalCard(image: Int, selected: Boolean){
+fun AnimalCard(
+    image: Int,
+    selected: Boolean,
+    animalSelected: (animal: String) -> Unit
+) {
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
@@ -140,19 +147,23 @@ fun AnimalCard(image: Int, selected: Boolean){
             .size(130.dp),
         elevation = CardDefaults.cardElevation(4.dp),
     ) {
-        Box (
-            modifier = Modifier.fillMaxSize()
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
                 .border(
                     width = 1.dp,
                     color = if (selected) Color.Green else Color.Transparent,
                     shape = RoundedCornerShape(8.dp)
                 )
-        ){
+        ) {
             Image(
                 modifier = Modifier
                     .padding(16.dp)
-                    .wrapContentWidth()
-                    .wrapContentHeight(),
+                    .fillMaxWidth()
+                    .clickable {
+                        val animalName = if (image == R.drawable.cat) "Cat" else "Dog"
+                        animalSelected.invoke(animalName)
+                    },
                 painter = painterResource(id = image),
                 contentDescription = "Animal Image"
             )
@@ -164,4 +175,22 @@ fun AnimalCard(image: Int, selected: Boolean){
 @Composable
 fun AnimalCardPreview() {
 //    AnimalCard()
+}
+
+@Composable
+fun ButtonComponent(
+    goToDetailsScreen: () -> Unit
+) {
+    Button(
+        modifier = Modifier.fillMaxWidth(),
+        onClick = {
+
+        }
+    ) {
+        TextComponent(
+            textValue = "Go to Details Screen",
+            textSize = 18.sp,
+            colorValue = Color.White
+        )
+    }
 }
