@@ -1,4 +1,6 @@
 package com.nguyenhoangthanhan.funfacts.data
 
-class UserInputScreenState {
-}
+data class UserInputScreenState(
+    var nameEntered: String = "",
+    var animateSelected: String = ""
+)
