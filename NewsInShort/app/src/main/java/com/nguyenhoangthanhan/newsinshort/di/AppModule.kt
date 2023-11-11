@@ -4,6 +4,7 @@ import com.nguyenhoangthanhan.newsinshort.data.AppConstants
 import com.nguyenhoangthanhan.newsinshort.data.api.ApiService
 import com.nguyenhoangthanhan.newsinshort.data.datasource.NewsDataSource
 import com.nguyenhoangthanhan.newsinshort.data.datasource.NewsDataSourceImp
+import com.nguyenhoangthanhan.newsinshort.ui.repository.NewsRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -14,7 +15,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -48,13 +48,19 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun providesApiService(retrofit: Retrofit) : ApiService{
+    fun providesApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
 
     @Provides
     @Singleton
-    fun providesNewsDataSource(apiService: ApiService): NewsDataSource{
+    fun providesNewsDataSource(apiService: ApiService): NewsDataSource {
         return NewsDataSourceImp(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun providesNewsRepository(dataSource: NewsDataSource): NewsRepository {
+        return NewsRepository(dataSource)
     }
 }
