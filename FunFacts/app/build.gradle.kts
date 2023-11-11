@@ -85,4 +85,5 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
     // Lifecycle utilities for Compose
     implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.core.splashscreen)
 }

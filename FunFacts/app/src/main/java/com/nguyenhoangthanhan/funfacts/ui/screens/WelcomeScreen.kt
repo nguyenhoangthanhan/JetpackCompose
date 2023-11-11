@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.nguyenhoangthanhan.funfacts.ui.FactComposable
 import com.nguyenhoangthanhan.funfacts.ui.TextComponent
 import com.nguyenhoangthanhan.funfacts.ui.TextWithShadow
 import com.nguyenhoangthanhan.funfacts.ui.TopBar
@@ -42,10 +43,12 @@ fun WelcomeScreen(username: String?, animalSelected: String?) {
             Spacer(modifier = Modifier.size(60.dp))
 
             val finalText = if (animalSelected == "Cat")
-                "You are a Cat lover \uD83D\uDC36"
-            else "You are a Dog lover \uD83D\uDC36"
+                "You are a Cat lover \uD83D\uDC31"
+            else "You are a Dog lover \uD83D\uDC15"
 
             TextWithShadow(value = finalText)
+
+            FactComposable(value = "Here is the first fact")
         }
     }
 }
@@ -53,5 +56,5 @@ fun WelcomeScreen(username: String?, animalSelected: String?) {
 @Preview
 @Composable
 fun WelcomeScreenPreview() {
-    WelcomeScreen("username", "animalSelected")
+    WelcomeScreen("username", "Cat")
 }
