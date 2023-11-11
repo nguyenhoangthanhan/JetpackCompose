@@ -1,0 +1,12 @@
+***NewsInShort: 
+-Jetpack Compose
+-Clean code structure
+-UI Layer
+-Data Layer
+-DI Layer
+-Retrofit
+-Coroutines
+-Flow
+-Data Structure
+-MVVM
+-Dagger Hilt
