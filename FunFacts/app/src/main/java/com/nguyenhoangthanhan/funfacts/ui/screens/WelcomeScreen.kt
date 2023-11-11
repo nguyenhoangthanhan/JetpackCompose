@@ -15,7 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.nguyenhoangthanhan.funfacts.ui.FactComposable
+import com.nguyenhoangthanhan.funfacts.ui.FactsViewModel
 import com.nguyenhoangthanhan.funfacts.ui.TextComponent
 import com.nguyenhoangthanhan.funfacts.ui.TextWithShadow
 import com.nguyenhoangthanhan.funfacts.ui.TopBar
@@ -48,7 +50,10 @@ fun WelcomeScreen(username: String?, animalSelected: String?) {
 
             TextWithShadow(value = finalText)
 
-            FactComposable(value = "Here is the first fact")
+            val factsViewModel: FactsViewModel = viewModel()
+
+            FactComposable(value = factsViewModel.generateRandomFacts(animalSelected!!))
+
         }
     }
 }

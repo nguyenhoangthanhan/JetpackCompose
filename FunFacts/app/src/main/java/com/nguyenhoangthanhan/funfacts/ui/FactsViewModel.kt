@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModel
 
 class FactsViewModel : ViewModel() {
 
-    fun generateRandomFacts(){
-
+    fun generateRandomFacts(selectedAnimal: String): String {
+        return if (selectedAnimal == "Dog")
+            getDogFacts().random()
+        else getCatFacts().random()
     }
 
     fun getDogFacts(): List<String> {
