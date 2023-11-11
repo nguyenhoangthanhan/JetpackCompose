@@ -4,4 +4,8 @@ Some components in Jetpack Compose: Surface, Column, Row, Text, OutlinedTextFiel
 
 Function: Select favorite animals(dog or cat) and navigate to Welcome screen
 
-Demo: https://github.com/nguyenhoangthanhan/LearnJetpackCompose/assets/38137175/8e9bd128-adbb-43c4-bda2-b91751469740
+Demo:
+
+
+https://github.com/nguyenhoangthanhan/LearnJetpackCompose/assets/38137175/d948c699-6295-4cd9-ae54-83409fdd23f9
+
