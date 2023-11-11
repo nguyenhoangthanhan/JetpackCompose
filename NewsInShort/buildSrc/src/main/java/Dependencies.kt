@@ -35,6 +35,9 @@ object Dependencies {
     val moshiConverter by lazy {"com.squareup.retrofit2:converter-moshi:${Version.moshiConverter}"}
     val loginInterceptor by lazy {"com.squareup.okhttp3:logging-interceptor:${Version.loggingInterceptor}"}
 
+    val coroutinesCore by lazy {"org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutine}"}
+    val coroutinesAndroid by lazy {"org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutine}"}
+
 }
 
 object Modules {

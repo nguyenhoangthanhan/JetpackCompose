@@ -1,4 +1,12 @@
 package com.nguyenhoangthanhan.newsinshort.ui.repository
 
-class NewRepository {
+import com.nguyenhoangthanhan.newsinshort.data.datasource.NewsDataSource
+import javax.inject.Inject
+
+class NewRepository @Inject constructor(
+    private val newsDataSource: NewsDataSource
+) {
+    suspend fun getNewsHeadline(country: String) {
+
+    }
 }

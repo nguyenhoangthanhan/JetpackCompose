@@ -90,6 +90,9 @@ dependencies {
     implementation(Dependencies.moshi)
     implementation(Dependencies.moshiConverter)
     implementation(Dependencies.loginInterceptor)
+
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesAndroid)
 }
 
 kapt{

@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface NewsDataSource {
 
     @GET("v2/top-headlines")
-    fun getNewsHeadline(
+    suspend fun getNewsHeadline(
         country: String
     ): Response<NewsResponse>
 }
