@@ -1,6 +1,5 @@
 package com.nguyenhoangthanhan.funfacts.ui.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -17,9 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.viewModelFactory
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.nguyenhoangthanhan.funfacts.R
 import com.nguyenhoangthanhan.funfacts.data.UserDataUiEvents
 import com.nguyenhoangthanhan.funfacts.ui.AnimalCard
@@ -30,7 +25,10 @@ import com.nguyenhoangthanhan.funfacts.ui.TopBar
 import com.nguyenhoangthanhan.funfacts.ui.UserInputViewModel
 
 @Composable
-fun UserInputScreen(userInputViewModel: UserInputViewModel) {
+fun UserInputScreen(
+    userInputViewModel: UserInputViewModel,
+        showWelcomeScreen: (valuesPair: Pair<String, String>) -> Unit
+) {
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -94,13 +92,23 @@ fun UserInputScreen(userInputViewModel: UserInputViewModel) {
 
             Spacer(modifier = Modifier.weight(1f))
 
-            if(!userInputViewModel.uiState.value.nameEntered.isNullOrEmpty()
-                && !userInputViewModel.uiState.value.animateSelected.isNullOrEmpty())
-            ButtonComponent(
-                goToDetailsScreen = {
-
-                }
-            )
+            if (userInputViewModel.isValidState()) {
+                ButtonComponent(
+                    goToDetailsScreen = {
+                        println("==========Coming here")
+                        println(
+                            "==========${userInputViewModel.uiState.value.nameEntered} " +
+                                    "and ${userInputViewModel.uiState.value.animateSelected}"
+                        )
+                        showWelcomeScreen(
+                            Pair(
+                                userInputViewModel.uiState.value.nameEntered,
+                                userInputViewModel.uiState.value.animateSelected
+                            )
+                        )
+                    }
+                )
+            }
         }
     }
 }
@@ -108,5 +116,7 @@ fun UserInputScreen(userInputViewModel: UserInputViewModel) {
 @Preview
 @Composable
 fun UserInputScreenPreview() {
-    UserInputScreen(UserInputViewModel())
+    UserInputScreen(UserInputViewModel()) {
+
+    }
 }

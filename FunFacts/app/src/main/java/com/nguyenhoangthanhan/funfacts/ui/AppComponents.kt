@@ -30,7 +30,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -103,7 +105,9 @@ fun TextFieldComponent(
     var currentValue by remember {
         mutableStateOf("")
     }
+
     val localFocusManager = LocalFocusManager.current
+
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         value = currentValue,
@@ -140,6 +144,8 @@ fun AnimalCard(
     selected: Boolean,
     animalSelected: (animal: String) -> Unit
 ) {
+    val localFocusManager = LocalFocusManager.current
+
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
@@ -163,6 +169,7 @@ fun AnimalCard(
                     .clickable {
                         val animalName = if (image == R.drawable.cat) "Cat" else "Dog"
                         animalSelected.invoke(animalName)
+                        localFocusManager.clearFocus()
                     },
                 painter = painterResource(id = image),
                 contentDescription = "Animal Image"
@@ -184,7 +191,7 @@ fun ButtonComponent(
     Button(
         modifier = Modifier.fillMaxWidth(),
         onClick = {
-
+            goToDetailsScreen.invoke()
         }
     ) {
         TextComponent(
@@ -193,4 +200,17 @@ fun ButtonComponent(
             colorValue = Color.White
         )
     }
+}
+
+@Composable
+fun TextWithShadow(value: String){
+    val shadowOffSet = Offset(x = 1f, y = 2f)
+    Text(
+        text = value,
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Light,
+        style = TextStyle(
+            shadow = Shadow(Color.Green, shadowOffSet, 2f)
+        )
+    )
 }

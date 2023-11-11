@@ -34,5 +34,8 @@ class UserInputViewModel : ViewModel() {
         }
     }
 
-//    fun isValidState
+    fun isValidState(): Boolean {
+        return (uiState.value.nameEntered.isNotEmpty()
+                && uiState.value.animateSelected.isNotEmpty())
+    }
 }
