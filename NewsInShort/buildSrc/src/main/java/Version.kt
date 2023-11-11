@@ -15,4 +15,6 @@ object Version {
     const val material = "1.10.0"
     const val navigationVersion = "2.7.5"
     const val coreSplashscreen = "1.0.0"
+    const val daggerHilt = "2.48"
+    const val hiltCompiler = "1.1.0"
 }
