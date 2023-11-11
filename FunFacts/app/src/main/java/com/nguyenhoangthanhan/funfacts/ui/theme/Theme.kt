@@ -37,6 +37,30 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+private val LightThemeColors = lightColorScheme(
+    primary = Purple40,
+    secondary = PurpleGrey40,
+    tertiary = Pink40,
+    onPrimary = Black2,
+    onSecondary = Black2,
+    error = RedErrorDark,
+    onError = RedErrorLight,
+
+    )
+
+private val DarkThemeColors = darkColorScheme(
+    primary = Purple80,
+    secondary = PurpleGrey80,
+    tertiary = Pink80,
+    onPrimary = White2,
+    onSecondary = White2,
+    error = RedErrorLight,
+    onError = RedErrorLight,
+    //surface = Color(0xFF3c506b),
+
+
+)
+
 @Composable
 fun FunFactsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -47,10 +71,10 @@ fun FunFactsTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) dynamicLightColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
+        darkTheme -> LightColorScheme
         else -> LightColorScheme
     }
     val view = LocalView.current
@@ -68,3 +92,14 @@ fun FunFactsTheme(
         content = content
     )
 }
+
+//@Composable
+//fun FunFactsTheme(
+//    darkTheme: Boolean,
+//    content: @Composable () -> Unit,
+//) {
+//    MaterialTheme(
+//        colorScheme = if (darkTheme) DarkThemeColors else LightThemeColors,
+//        content= content
+//    )
+//}

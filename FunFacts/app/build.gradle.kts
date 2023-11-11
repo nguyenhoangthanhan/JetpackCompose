@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.ui.tooling)
     implementation(libs.ui.test.manifest)
     implementation(libs.constraintlayout.compose)
+    implementation(libs.appcompat)
     androidTestImplementation(platform(libs.compose.bom))
 
     implementation(platform(libs.firebase.bom))
