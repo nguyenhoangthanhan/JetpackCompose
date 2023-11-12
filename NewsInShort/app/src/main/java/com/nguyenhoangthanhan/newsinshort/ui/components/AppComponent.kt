@@ -1,5 +1,6 @@
 package com.nguyenhoangthanhan.newsinshort.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,9 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -80,7 +83,7 @@ fun NormalTextComponent(textValue: String) {
 }
 
 @Composable
-fun HeadingTextComponent(textValue: String) {
+fun HeadingTextComponent(textValue: String, centerAligned: Boolean = false) {
     Text(
         modifier = Modifier
             .fillMaxWidth()
@@ -90,7 +93,8 @@ fun HeadingTextComponent(textValue: String) {
         style = TextStyle(
             fontSize = 24.sp,
             fontWeight = FontWeight.Medium
-        )
+        ),
+        textAlign = if (centerAligned) TextAlign.Center else TextAlign.Start
     )
 }
 
@@ -163,4 +167,33 @@ fun AuthorDetailComponent(authorName: String? = "", sourceName: String? = "") {
         sourceName?.let { Text(text = it) }
 
     }
+}
+
+@Composable
+fun EmptyStateComponent() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Image(
+            painter = painterResource(
+                id = R.drawable.icon_no_connection_blue
+            ),
+            contentDescription = null
+        )
+
+        HeadingTextComponent(
+            textValue = stringResource(R.string.no_news_as_of_now_please_check_in_some_time),
+            centerAligned = true
+        )
+    }
+}
+
+@Preview
+@Composable
+fun EmptyStateComponentPreview() {
+    EmptyStateComponent()
 }

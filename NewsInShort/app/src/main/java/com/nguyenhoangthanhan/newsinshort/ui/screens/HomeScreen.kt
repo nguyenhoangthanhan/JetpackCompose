@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.nguyenhoangthanhan.newsinshort.ui.components.EmptyStateComponent
 import com.nguyenhoangthanhan.newsinshort.ui.components.Loader
 import com.nguyenhoangthanhan.newsinshort.ui.components.NewRowComponent
 import com.nguyenhoangthanhan.newsinshort.ui.viewmodels.NewsViewModel
@@ -54,9 +55,10 @@ fun HomeScreen(
                 )
 
                 if (response.articles.isNotEmpty()){
-                    NewRowComponent(page, response.articles[page])
+                    EmptyStateComponent()
+//                    NewRowComponent(page, response.articles[page])
                 }else{
-
+                    EmptyStateComponent()
                 }
             }
 
