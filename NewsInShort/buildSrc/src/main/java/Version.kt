@@ -29,4 +29,6 @@ object Version {
     const val coroutine = "1.7.3"
 
     const val splashScreen = "1.0.1"
+
+    const val coil = "2.2.0"
 }

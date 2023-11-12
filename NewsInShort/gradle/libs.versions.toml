@@ -44,6 +44,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-version" }
 core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
+androidx-monitor = { group = "androidx.test", name = "monitor", version = "1.6.1" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

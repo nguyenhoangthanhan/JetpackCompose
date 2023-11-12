@@ -74,8 +74,11 @@ dependencies {
     implementation(platform(Dependencies.composeBom))
     implementation(Dependencies.composeUi)
     implementation(Dependencies.uiGraphics)
+    implementation(libs.androidx.monitor)
+    debugImplementation(Dependencies.uiTooling)
     implementation(Dependencies.uiToolingPreview)
     implementation(Dependencies.material3)
+    implementation(Dependencies.junit)
 
     implementation(project(Modules.utilities))
 
@@ -95,6 +98,7 @@ dependencies {
     implementation(Dependencies.coroutinesAndroid)
     implementation(Dependencies.splashScreen)
 
+    implementation(Dependencies.coil)
 }
 
 kapt{
