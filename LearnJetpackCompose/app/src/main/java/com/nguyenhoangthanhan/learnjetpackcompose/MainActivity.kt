@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -24,6 +26,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
+import androidx.navigation.compose.rememberNavController
+import com.nguyenhoangthanhan.learnjetpackcompose.ui.theme.LearnJetpackComposeTheme
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
@@ -31,64 +42,64 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            MainScreen()
+            LearnJetpackComposeTheme {
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = "home"
+                ) {
+                    composable("about"){
+
+                    }
+                    navigation(
+                        startDestination = "login",
+                        route = "auth"
+                    ) {
+
+                        composable("login") {
+                            it.sharedViewModel<SampleViewModel>(navController = navController)
+
+                            Button(onClick = {
+                                navController.navigate("calender"){
+                                    popUpTo("auth"){
+                                        inclusive = true
+                                    }
+                                }
+                            }) {
+                                
+                            }
+                        }
+
+                        composable("register") {
+                            it.sharedViewModel<SampleViewModel>(navController = navController)
+                        }
+
+                        composable("forgot_password") {
+                            it.sharedViewModel<SampleViewModel>(navController = navController)
+                        }
+                    }
+                    navigation(
+                        startDestination = "calendar_overview",
+                        route = "calendar"
+                    ) {
+                        composable("calendar_overview") {
+
+                        }
+                        composable("calendar_entry") {
+
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-fun MainScreen(){
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()
-        .background(Color.White)
-    ){
-//        TextComponent("Android", shadowColor = Color.Yellow)
-//        TextComponent("Kotlin", shadowColor = Color.Cyan)
-
-        EventNumbers()
+inline fun <reified T : ViewModel> NavBackStackEntry.sharedViewModel(navController: NavController): T {
+    val navGraphRoute = destination.parent?.route ?: viewModel()
+    val parentEntry = remember(this) {
+        navController.getBackStackEntry(navGraphRoute)
     }
-}
-
-@Composable
-fun TextComponent(s: String, shadowColor: Color) {
-
-    val shadowOffset = Offset(x = 4f, y = 6f)
-
-    Text(
-        modifier = Modifier
-            .width(80.dp)
-            .height(80.dp)
-            .padding(
-                18.dp
-            ),
-        text = s,
-        color = Color.Blue,
-        fontWeight = FontWeight.Medium,
-        style = TextStyle(
-            fontSize = 24.sp,
-            fontStyle = FontStyle.Normal,
-            shadow = Shadow(shadowColor, shadowOffset, 2f)
-        )
-    )
-}
-
-@Composable
-fun EventNumbers(){
-    for (number in 2..10){
-        if (number % 2 == 0){
-            val color = Color(
-                red = Random.nextInt(256),
-                blue = Random.nextInt(256),
-                green = Random.nextInt(256)
-            )
-            TextComponent(number.toString(), color)
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview(){
-    MainScreen()
+    return viewModel(parentEntry)
 }
