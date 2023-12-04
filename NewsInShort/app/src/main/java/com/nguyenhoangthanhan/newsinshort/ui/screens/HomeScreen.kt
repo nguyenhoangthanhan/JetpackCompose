@@ -55,8 +55,7 @@ fun HomeScreen(
                 )
 
                 if (response.articles.isNotEmpty()){
-                    EmptyStateComponent()
-//                    NewRowComponent(page, response.articles[page])
+                    NewRowComponent(page, response.articles[page])
                 }else{
                     EmptyStateComponent()
                 }
