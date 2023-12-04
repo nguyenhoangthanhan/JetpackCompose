@@ -40,5 +40,15 @@ fun HomeScreen(){
             Text(text = "Open TextFields Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                MaterialAppRouter.navigateTo(Screen.SelectionUIComponentsScreen)
+            }
+        ) {
+            Text(text = "Open Selection UI Components Screen")
+        }
+
     }
 }

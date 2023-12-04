@@ -9,6 +9,7 @@ sealed class Screen {
     data object HomeScreen : Screen()
     data object ButtonScreen : Screen()
     data object TextFieldsScreen : Screen()
+    data object SelectionUIComponentsScreen : Screen()
 }
 
 object MaterialAppRouter {
