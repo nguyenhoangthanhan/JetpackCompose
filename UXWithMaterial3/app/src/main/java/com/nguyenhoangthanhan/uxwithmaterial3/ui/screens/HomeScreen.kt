@@ -80,5 +80,15 @@ fun HomeScreen(){
             Text(text = "Open Bottom Navigation Bar With Badges Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                MaterialAppRouter.navigateTo(Screen.NavigationRailScreen)
+            }
+        ) {
+            Text(text = "Open Navigation Rail Screen")
+        }
+
     }
 }
