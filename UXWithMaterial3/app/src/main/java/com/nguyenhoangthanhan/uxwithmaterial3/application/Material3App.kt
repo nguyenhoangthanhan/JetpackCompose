@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.nguyenhoangthanhan.uxwithmaterial3.navigation.MaterialAppRouter
 import com.nguyenhoangthanhan.uxwithmaterial3.navigation.Screen
+import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.BottomAppBarScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.ButtonScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.HomeScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.SelectionUIComponentsScreen
@@ -40,6 +41,14 @@ fun Material3App (){
 
                 is Screen.TopAppBarToolbarScreen -> {
                     TopAppBarToolbarScreen()
+                }
+
+                is Screen.BottomAppBarScreen -> {
+                    BottomAppBarScreen()
+                }
+
+                is Screen.BottomNavigationBarWithBadgesScreen -> {
+                    BottomAppBarScreen()
                 }
             }
         }
