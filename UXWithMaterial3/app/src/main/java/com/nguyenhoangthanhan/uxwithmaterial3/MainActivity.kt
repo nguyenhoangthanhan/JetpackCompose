@@ -12,7 +12,7 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             UXWithMaterial3Theme {
-                Material3App()
+                Material3App(this)
             }
         }
     }

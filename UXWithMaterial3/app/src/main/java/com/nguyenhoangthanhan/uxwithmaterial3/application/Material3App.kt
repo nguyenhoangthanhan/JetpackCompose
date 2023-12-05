@@ -1,5 +1,6 @@
 package com.nguyenhoangthanhan.uxwithmaterial3.application
 
+import android.app.Activity
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -18,7 +19,7 @@ import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.TextFieldsScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.TopAppBarToolbarScreen
 
 @Composable
-fun Material3App (){
+fun Material3App (activity: Activity){
     Surface (
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -54,7 +55,7 @@ fun Material3App (){
                 }
 
                 is Screen.NavigationRailScreen -> {
-                    NavigationRailScreen()
+                    NavigationRailScreen(activity = activity)
                 }
             }
         }
