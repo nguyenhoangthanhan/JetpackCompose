@@ -50,5 +50,15 @@ fun HomeScreen(){
             Text(text = "Open Selection UI Components Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                MaterialAppRouter.navigateTo(Screen.TopAppBarToolbarScreen)
+            }
+        ) {
+            Text(text = "Open Top App Bar Toolbar Screen")
+        }
+
     }
 }

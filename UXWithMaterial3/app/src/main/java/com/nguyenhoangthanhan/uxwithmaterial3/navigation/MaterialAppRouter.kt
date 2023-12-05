@@ -10,6 +10,7 @@ sealed class Screen {
     data object ButtonScreen : Screen()
     data object TextFieldsScreen : Screen()
     data object SelectionUIComponentsScreen : Screen()
+    data object TopAppBarToolbarScreen : Screen()
 }
 
 object MaterialAppRouter {

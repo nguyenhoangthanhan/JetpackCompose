@@ -12,6 +12,7 @@ import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.ButtonScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.HomeScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.SelectionUIComponentsScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.TextFieldsScreen
+import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.TopAppBarToolbarScreen
 
 @Composable
 fun Material3App (){
@@ -35,6 +36,10 @@ fun Material3App (){
 
                 is Screen.SelectionUIComponentsScreen -> {
                     SelectionUIComponentsScreen()
+                }
+
+                is Screen.TopAppBarToolbarScreen -> {
+                    TopAppBarToolbarScreen()
                 }
             }
         }
