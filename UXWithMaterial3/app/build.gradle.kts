@@ -60,7 +60,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation(libs.material.compose)
+//    implementation(libs.material.compose)
     implementation(libs.material.icons.extended)
     implementation(libs.appcompat)
     implementation(libs.material)
