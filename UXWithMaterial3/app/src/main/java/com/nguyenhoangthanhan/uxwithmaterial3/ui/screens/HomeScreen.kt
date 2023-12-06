@@ -90,5 +90,15 @@ fun HomeScreen(){
             Text(text = "Open Navigation Rail Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                MaterialAppRouter.navigateTo(Screen.NavigationDrawerScreen)
+            }
+        ) {
+            Text(text = "Open Navigation Drawer Screen")
+        }
+
     }
 }
