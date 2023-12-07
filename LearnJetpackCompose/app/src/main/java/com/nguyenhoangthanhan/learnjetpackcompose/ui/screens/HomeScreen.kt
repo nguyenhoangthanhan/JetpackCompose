@@ -40,5 +40,15 @@ fun HomeScreen(){
             Text(text = "Open Delegation Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                LearnJetpackComposeRouter.navigateTo(Screen.NavigateBackWithResultScreen)
+            }
+        ) {
+            Text(text = "Open Navigate Back With Result Screen")
+        }
+
     }
 }

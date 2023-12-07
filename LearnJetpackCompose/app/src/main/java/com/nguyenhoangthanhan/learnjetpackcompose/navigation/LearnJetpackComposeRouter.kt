@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 sealed class Screen{
     data object HomeScreen: Screen()
     data object DelegationScreen: Screen()
+    data object NavigateBackWithResultScreen: Screen()
 }
 
 object LearnJetpackComposeRouter{

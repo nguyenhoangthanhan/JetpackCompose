@@ -1,5 +1,6 @@
 package com.nguyenhoangthanhan.learnjetpackcompose.ui.screens
 
+import androidx.activity.OnBackPressedCallback
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.nguyenhoangthanhan.learnjetpackcompose.navigation.LearnJetpackComposeRouter
 import com.nguyenhoangthanhan.learnjetpackcompose.navigation.Screen
+import com.nguyenhoangthanhan.learnjetpackcompose.navigation.SystemBackButtonHandler
 
 @Composable
 fun DelegationScreen(){
@@ -29,5 +31,9 @@ fun DelegationScreen(){
             Text(text = "DelegationScreen")
         }
 
+    }
+
+    SystemBackButtonHandler {
+        LearnJetpackComposeRouter.navigateTo(Screen.HomeScreen)
     }
 }

@@ -10,6 +10,7 @@ import com.nguyenhoangthanhan.learnjetpackcompose.navigation.LearnJetpackCompose
 import com.nguyenhoangthanhan.learnjetpackcompose.navigation.Screen
 import com.nguyenhoangthanhan.learnjetpackcompose.ui.screens.DelegationScreen
 import com.nguyenhoangthanhan.learnjetpackcompose.ui.screens.HomeScreen
+import com.nguyenhoangthanhan.learnjetpackcompose.ui.screens.NavigateBackWithResultScreen
 
 @Composable
 fun LearnJetpackComposeApp() {
@@ -28,6 +29,10 @@ fun LearnJetpackComposeApp() {
 
                 is Screen.DelegationScreen -> {
                     DelegationScreen()
+                }
+
+                is Screen.NavigateBackWithResultScreen -> {
+                    NavigateBackWithResultScreen()
                 }
             }
         }
