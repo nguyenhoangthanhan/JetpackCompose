@@ -17,6 +17,7 @@ import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.HomeScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.NavigationDrawerScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.NavigationRailScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.SelectionUIComponentsScreen
+import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.SwipeableTabRowsScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.TextFieldsScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.TopAppBarToolbarScreen
 
@@ -66,6 +67,10 @@ fun Material3App (activity: Activity){
 
                 is Screen.BottomSheetsScreen -> {
                     BottomSheetsScreen()
+                }
+
+                is Screen.SwipeableTabRowsScreen -> {
+                    SwipeableTabRowsScreen()
                 }
             }
         }

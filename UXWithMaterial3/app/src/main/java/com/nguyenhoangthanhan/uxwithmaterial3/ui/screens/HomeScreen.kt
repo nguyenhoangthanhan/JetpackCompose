@@ -110,5 +110,15 @@ fun HomeScreen(){
             Text(text = "Open Bottom Sheets Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                MaterialAppRouter.navigateTo(Screen.SwipeableTabRowsScreen)
+            }
+        ) {
+            Text(text = "Open Swipeable Tab Rows Screen")
+        }
+
     }
 }

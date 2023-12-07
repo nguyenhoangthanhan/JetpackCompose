@@ -16,6 +16,7 @@ sealed class Screen {
     data object NavigationRailScreen : Screen()
     data object NavigationDrawerScreen : Screen()
     data object BottomSheetsScreen : Screen()
+    data object SwipeableTabRowsScreen : Screen()
 }
 
 object MaterialAppRouter {
