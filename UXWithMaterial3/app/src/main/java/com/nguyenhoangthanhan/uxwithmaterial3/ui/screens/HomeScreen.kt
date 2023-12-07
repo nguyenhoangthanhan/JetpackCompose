@@ -100,5 +100,15 @@ fun HomeScreen(){
             Text(text = "Open Navigation Drawer Screen")
         }
 
+        Spacer(modifier = Modifier.size(16.dp))
+
+        Button(
+            onClick = {
+                MaterialAppRouter.navigateTo(Screen.BottomSheetsScreen)
+            }
+        ) {
+            Text(text = "Open Bottom Sheets Screen")
+        }
+
     }
 }

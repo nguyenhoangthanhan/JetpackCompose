@@ -11,6 +11,7 @@ import com.nguyenhoangthanhan.uxwithmaterial3.navigation.MaterialAppRouter
 import com.nguyenhoangthanhan.uxwithmaterial3.navigation.Screen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.BottomAppBarScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.BottomNavigationBarWithBadgesScreen
+import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.BottomSheetsScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.ButtonScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.HomeScreen
 import com.nguyenhoangthanhan.uxwithmaterial3.ui.screens.NavigationDrawerScreen
@@ -61,6 +62,10 @@ fun Material3App (activity: Activity){
 
                 is Screen.NavigationDrawerScreen -> {
                     NavigationDrawerScreen()
+                }
+
+                is Screen.BottomSheetsScreen -> {
+                    BottomSheetsScreen()
                 }
             }
         }
