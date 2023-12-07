@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.learnjetpackcompose
+package com.nguyenhoangthanhan.learnjetpackcompose.ui.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            LearnJetpackComposeApp()
+            LearnJetpackComposeApp(this)
         }
     }
 }

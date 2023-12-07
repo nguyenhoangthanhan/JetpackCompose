@@ -1,5 +1,7 @@
 package com.nguyenhoangthanhan.learnjetpackcompose.application
 
+import android.app.Activity
+import android.content.Context
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -13,7 +15,7 @@ import com.nguyenhoangthanhan.learnjetpackcompose.ui.screens.HomeScreen
 import com.nguyenhoangthanhan.learnjetpackcompose.ui.screens.NavigateBackWithResultScreen
 
 @Composable
-fun LearnJetpackComposeApp() {
+fun LearnJetpackComposeApp(activity: Activity) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -28,7 +30,7 @@ fun LearnJetpackComposeApp() {
                 }
 
                 is Screen.DelegationScreen -> {
-                    DelegationScreen()
+                    DelegationScreen(activity)
                 }
 
                 is Screen.NavigateBackWithResultScreen -> {

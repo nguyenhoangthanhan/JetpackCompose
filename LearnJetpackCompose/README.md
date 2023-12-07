@@ -1,1 +1,1 @@
-
+- Implemented pop the backstack with a result in Android and Compose.
