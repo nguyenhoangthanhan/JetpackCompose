@@ -40,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -53,18 +53,25 @@ dependencies {
 
     implementation(libs.androidx.ktx)
     implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
-    implementation(libs.junit)
-    implementation(libs.androidx.test.ext.junit)
-    implementation(libs.espresso)
-    implementation(libs.ui.test.junit4)
-    implementation(libs.ui.tooling)
-    implementation(libs.ui.test.manifest)
+    implementation(libs.material3.windowSizeClass)
+    implementation(libs.material.icons.extended)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso)
+    androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.navigation.compose)
 
     // Jetpack Compose Integration
     implementation(libs.navigation.compose)

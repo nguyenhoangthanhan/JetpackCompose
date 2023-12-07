@@ -34,6 +34,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.nguyenhoangthanhan.learnjetpackcompose.application.LearnJetpackComposeApp
 import com.nguyenhoangthanhan.learnjetpackcompose.ui.theme.LearnJetpackComposeTheme
 import kotlin.random.Random
 
@@ -42,64 +43,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            LearnJetpackComposeTheme {
-                val navController = rememberNavController()
-                NavHost(
-                    navController = navController,
-                    startDestination = "home"
-                ) {
-                    composable("about"){
-
-                    }
-                    navigation(
-                        startDestination = "login",
-                        route = "auth"
-                    ) {
-
-                        composable("login") {
-                            it.sharedViewModel<SampleViewModel>(navController = navController)
-
-                            Button(onClick = {
-                                navController.navigate("calender"){
-                                    popUpTo("auth"){
-                                        inclusive = true
-                                    }
-                                }
-                            }) {
-                                
-                            }
-                        }
-
-                        composable("register") {
-                            it.sharedViewModel<SampleViewModel>(navController = navController)
-                        }
-
-                        composable("forgot_password") {
-                            it.sharedViewModel<SampleViewModel>(navController = navController)
-                        }
-                    }
-                    navigation(
-                        startDestination = "calendar_overview",
-                        route = "calendar"
-                    ) {
-                        composable("calendar_overview") {
-
-                        }
-                        composable("calendar_entry") {
-
-                        }
-                    }
-                }
-            }
+            LearnJetpackComposeApp()
         }
     }
-}
-
-@Composable
-inline fun <reified T : ViewModel> NavBackStackEntry.sharedViewModel(navController: NavController): T {
-    val navGraphRoute = destination.parent?.route ?: viewModel()
-    val parentEntry = remember(this) {
-        navController.getBackStackEntry(navGraphRoute)
-    }
-    return viewModel(parentEntry)
 }
