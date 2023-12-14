@@ -1,6 +1,6 @@
 package com.nguyenhoangthanhan.validateforms.presentation
 
-data class RegistrationFormState (
+data class RegistrationFormState(
     val email: String = "",
     val emailError: String? = null,
     val password: String = "",

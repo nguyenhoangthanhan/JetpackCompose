@@ -13,7 +13,13 @@ class MainViewModel(
     private val validatePassword: ValidatePassword = ValidatePassword(),
     private val validateRepeatedPassword: ValidateRepeatedPassword = ValidateRepeatedPassword(),
     private val validateTerms: ValidateTerms = ValidateTerms()
-): ViewModel() {
+) : ViewModel() {
 
     val state by mutableStateOf(RegistrationFormState())
+
+    fun onEvent(event: RegistrationFormEvent) {
+        when (event) {
+
+        }
+    }
 }
