@@ -13,13 +13,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
@@ -81,7 +85,8 @@ class MainActivity : ComponentActivity() {
                         if (state.emailError != null) {
                             Text(
                                 text = state.emailError,
-                                color = MaterialTheme.colorScheme.error
+                                color = MaterialTheme.colorScheme.error,
+                                modifier = Modifier.align(Alignment.End)
                             )
                         }
                         Spacer(modifier = Modifier.height(16.dp))
@@ -104,7 +109,8 @@ class MainActivity : ComponentActivity() {
                         if (state.passwordError != null) {
                             Text(
                                 text = state.passwordError,
-                                color = MaterialTheme.colorScheme.error
+                                color = MaterialTheme.colorScheme.error,
+                                modifier = Modifier.align(Alignment.End)
                             )
                         }
                         Spacer(modifier = Modifier.height(16.dp))
@@ -127,15 +133,38 @@ class MainActivity : ComponentActivity() {
                         if (state.repeatedPasswordError != null) {
                             Text(
                                 text = state.repeatedPasswordError,
-                                color = MaterialTheme.colorScheme.error
+                                color = MaterialTheme.colorScheme.error,
+                                modifier = Modifier.align(Alignment.End)
                             )
                         }
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        Row (
+                        Row(
                             modifier = Modifier.fillMaxWidth()
-                        ){
+                        ) {
+                            Checkbox(
+                                checked = state.acceptTerms,
+                                onCheckedChange = {
+                                    viewModel.onEvent(RegistrationFormEvent.AcceptTerms(it))
+                                }
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(text = "Accept terms")
+                        }
+                        if (state.termsError != null) {
+                            Text(
+                                text = state.termsError,
+                                color = MaterialTheme.colorScheme.error
+                            )
+                        }
 
+                        Button(
+                            onClick = {
+                                viewModel.onEvent(RegistrationFormEvent.Submit)
+                            },
+                            modifier = Modifier.align(Alignment.End)
+                        ) {
+                            Text(text = "Submit")
                         }
                     }
                 }

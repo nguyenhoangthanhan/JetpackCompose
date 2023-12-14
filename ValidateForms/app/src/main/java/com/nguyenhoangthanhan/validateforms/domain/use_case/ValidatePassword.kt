@@ -1,7 +1,5 @@
 package com.nguyenhoangthanhan.validateforms.domain.use_case
 
-import android.util.Patterns
-
 class ValidatePassword {
 
     fun execute(password: String): ValidationResult {
