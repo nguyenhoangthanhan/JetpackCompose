@@ -1,4 +1,4 @@
-package com.nguyenhoangthanhan.validateforms
+package com.nguyenhoangthanhan.validateforms.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
