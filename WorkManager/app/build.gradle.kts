@@ -70,4 +70,12 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.composeRuntimeLivedata)
+
+    implementation(libs.coil)
+
+    implementation(libs.work.runtime.ktx)
+
+    implementation(libs.retrofit)
 }
