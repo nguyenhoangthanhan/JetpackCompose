@@ -1,4 +1,4 @@
-# LearnJetpackCompose
+# JetpackCompose
 ***SuperApp and LoginFlowApp:
 Detail about SuperApp App and LoginFlowApp: https://github.com/nguyenhoangthanhan/LearnJetpackCompose/blob/main/SupperApp/README.md
 
