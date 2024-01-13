@@ -27,6 +27,7 @@ devtools-ksp = "1.9.10-1.0.13"
 opencsv = "5.5.2"
 coil = "2.2.0"
 accompanist-coil = "0.15.0"
+accompanist-coil2 = "0.7.0"
 retrofit = "2.9.0"
 okhttp = "4.11.0"
 logging-interceptor = "4.8.1"
@@ -45,6 +46,9 @@ composeRuntimeLivedata = "1.5.4"
 
 #work-manager version
 work-runtime-ktx = "2.9.0"
+
+#location version
+play-services-location = "21.0.1"
 
 [libraries]
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastoreCore" }
@@ -105,7 +109,7 @@ opencsv = { group = "com.opencsv", name = "opencsv", version.ref = "opencsv" }
 
 #Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-accompanist-coil = { group = "com.google.accompanist", name = "accompanist-coil", version.ref = "accompanist-coil" }
+accompanist-coil = { group = "com.google.accompanist", name = "accompanist-coil", version.ref = "accompanist-coil2" }
 
 #retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
@@ -147,6 +151,8 @@ tensorflow-lite-gpuDelegatePlugin = { group = "org.tensorflow", name = "tensorfl
 tensorflow-lite-gpu = { group = "org.tensorflow", name = "tensorflow-lite-gpu", version.ref = "tensorflow-gpu" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+#Location Services
+playServicesLocation = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-services-location" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
