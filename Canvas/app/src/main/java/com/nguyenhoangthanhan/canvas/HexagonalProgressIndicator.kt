@@ -40,6 +40,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nguyenhoangthanhan.canvas.ui.theme.blue
+import com.nguyenhoangthanhan.canvas.ui.theme.brightBlue
 import com.nguyenhoangthanhan.canvas.ui.theme.white
 import kotlinx.coroutines.launch
 
@@ -88,7 +89,7 @@ fun HexagonalProgressIndicator(
                         ),
                         repeatMode = RepeatMode.Restart
                     )
-                ){value,_ ->
+                ) { value, _ ->
                     animationRotation = value
                 }
             }
@@ -139,8 +140,8 @@ fun HexagonalProgressIndicator(
                 }
 
                 if (shouldAnimateLoadingBar) {
-                    clipPath(path){
-                        rotate(animationRotation){
+                    clipPath(path) {
+                        rotate(animationRotation) {
                             drawArc(
                                 startAngle = 0f,
                                 sweepAngle = 150f,
@@ -212,6 +213,71 @@ fun HexagonPreview(
 
             },
             shouldAnimateLoadingBar = true
+        )
+    }
+}
+
+@Composable
+fun HexagonSection(
+    modifier: Modifier = Modifier,
+    isScanning: Boolean,
+    onScanButtonClick: () -> Unit,
+    color: Color,
+    backgroundColor: Color
+) {
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center
+    ) {
+        if (isScanning) {
+            HexagonalProgressIndicator(
+                isFilled = false,
+                hexagonColor = color,
+                backgroundColor = backgroundColor,
+                modifier = Modifier.fillMaxSize(),
+                shouldAnimateLoadingBar = true
+            )
+        } else {
+            HexagonalProgressIndicator(
+                isFilled = false,
+                hexagonColor = color,
+                backgroundColor = backgroundColor,
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
+        HexagonalProgressIndicator(
+            isFilled = true,
+            hexagonColor = color,
+            backgroundColor = backgroundColor,
+            icon = Icons.Default.Search,
+            modifier = Modifier.fillMaxSize(0.58f),
+            onClick = {
+                onScanButtonClick()
+            }
+        )
+    }
+}
+
+@Composable
+fun HexagonFinal() {
+    var isScanning by remember {
+        mutableStateOf(false)
+    }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        HexagonSection(
+            isScanning = isScanning,
+            onScanButtonClick = {
+                isScanning = !isScanning
+            },
+            color = brightBlue,
+            backgroundColor = white,
+            modifier = Modifier
+                .padding(15.dp)
+                .fillMaxWidth(0.25f)
+                .aspectRatio(6 / 7f)
         )
     }
 }

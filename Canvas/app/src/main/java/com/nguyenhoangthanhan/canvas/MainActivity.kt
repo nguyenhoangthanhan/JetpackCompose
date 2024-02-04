@@ -53,7 +53,9 @@ class MainActivity : ComponentActivity() {
 
 //            CanvasMultipleTransformations()
 
-            CanvasStockChart()
+//            CanvasStockChart()
+
+
         }
     }
 }
