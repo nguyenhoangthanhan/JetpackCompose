@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
 
 //            CanvasStockChart()
 
-
+            HexagonFinal()
         }
     }
 }
