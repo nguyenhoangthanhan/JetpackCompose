@@ -1,4 +1,5 @@
 [versions]
+
 datastoreCore = "1.0.0"
 kotlinSerialization = "1.9.21"
 kotlinxCoroutines = "1.7.3"
