@@ -1,10 +1,14 @@
 [versions]
+coil = "2.6.0"
 datastoreCore = "1.0.0"
+fragmentKtx = "1.6.2"
+gson = "2.10.1"
+kotlinReflect = "1.9.10"
 kotlinSerialization = "1.9.21"
 kotlinxCoroutines = "1.7.3"
 kotlinxSerializationJson = "1.6.0"
 ktx = "1.9.0"
-lifecycle = "2.6.2"
+lifecycle = "2.7.0"
 androidGradlePlugin = "8.1.1"
 kotlin = "1.9.20"
 google-services = "4.4.0"
@@ -14,9 +18,13 @@ espresso = "3.5.1"
 firebase-bom = "32.5.0"
 appcompat = "1.6.1"
 material = "1.10.0"
-navigation-version = "2.7.5"
+navigation-version = "2.7.7"
 core-splashscreen = "1.0.0"
 camerax-version = "1.3.0"
+navigationDynamicFeaturesFragment = "2.7.7"
+navigationFragmentKtx = "2.7.7"
+navigationTesting = "2.7.7"
+navigationUiKtx = "2.7.7"
 tensorflow = "0.4.0"
 tensorflow-gpu = "2.9.0"
 constraintlayout = "2.1.4"
@@ -25,7 +33,6 @@ hilt-android-version = "2.48.1"
 hilt-lifecycle-viewmodel = "1.0.0-alpha03"
 devtools-ksp = "1.9.23-1.0.19"
 opencsv = "5.5.2"
-coil = "2.2.0"
 accompanist-coil = "0.15.0"
 accompanist-coil2 = "0.7.0"
 retrofit = "2.9.0"
@@ -51,9 +58,21 @@ work-runtime-ktx = "2.9.0"
 play-services-location = "21.0.1"
 
 [libraries]
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
+androidx-fragment-testing = { module = "androidx.fragment:fragment-testing", version.ref = "fragmentKtx" }
+androidx-navigation-dynamic-features-fragment = { module = "androidx.navigation:navigation-dynamic-features-fragment", version.ref = "navigationDynamicFeaturesFragment" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationTesting" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-kt-coil-video = { module = "io.coil-kt:coil-video", version.ref = "coil" }
+coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
+coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastoreCore" }
 androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastoreCore" }
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinReflect" }
 kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlinSerialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
@@ -108,7 +127,6 @@ hilt-lifecycle-viewmodel = { group = "androidx.hilt", name = "hilt-lifecycle-vie
 opencsv = { group = "com.opencsv", name = "opencsv", version.ref = "opencsv" }
 
 #Coil
-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 accompanist-coil = { group = "com.google.accompanist", name = "accompanist-coil", version.ref = "accompanist-coil2" }
 
 #retrofit
@@ -155,8 +173,8 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 playServicesLocation = { group = "com.google.android.gms", name = "play-services-location", version.ref = "play-services-location" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com-android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 dagger-hilt-library = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android-version" }
