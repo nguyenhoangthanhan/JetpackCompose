@@ -1,5 +1,9 @@
 [versions]
+<<<<<<< HEAD
 coil = "2.6.0"
+=======
+
+>>>>>>> a49d99802e48c393bff1e633b72c554be9981dad
 datastoreCore = "1.0.0"
 fragmentKtx = "1.6.2"
 gson = "2.10.1"
