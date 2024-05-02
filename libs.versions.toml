@@ -31,6 +31,9 @@ navigationDynamicFeaturesFragment = "2.7.7"
 navigationFragmentKtx = "2.7.7"
 navigationTesting = "2.7.7"
 navigationUiKtx = "2.7.7"
+picasso = "2.8"
+subsamplingScaleImageView = "3.10.0"
+swiperefreshlayout = "1.1.0"
 tensorflow = "0.4.0"
 tensorflow-gpu = "2.9.0"
 constraintlayout = "2.1.4"
@@ -75,6 +78,7 @@ androidx-navigation-dynamic-features-fragment = { module = "androidx.navigation:
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationTesting" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-coil-video = { module = "io.coil-kt:coil-video", version.ref = "coil" }
@@ -101,6 +105,8 @@ lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-ru
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 mpAndroidChart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+subsamplingScaleImageView = { module = "com.davemorrissey.labs:subsampling-scale-image-view", version.ref = "subsamplingScaleImageView" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
@@ -119,7 +125,7 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.1" }
+constraintlayoutCompose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.1" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
